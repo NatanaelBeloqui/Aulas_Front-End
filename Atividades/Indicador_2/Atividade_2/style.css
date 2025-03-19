@@ -1,0 +1,91 @@
+:root {
+    --cor1: #464D6A;
+    --cor2: #363B51;
+    --cor3: #A13954;
+    --cor4: #d8d4d7a9;
+    --cor5: #ffffff;
+    --cor6: #D4D7DE;
+    --fonte1: Arial, sans-serif;
+    --fonte2: Roboto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--fonte2);
+    color: var(--cor4);
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Faz o body ocupar toda a tela */
+    background-color: var(--cor1);
+}
+
+.form {
+    background-color: var(--cor2);
+    width: 400px;
+    min-width: 400px;    
+    height: 412px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos na vertical */
+    align-items: center; /* Centraliza os elementos no eixo horizontal */
+    padding: 90px 60px 45px 60px;
+    border-radius: 4px;
+}
+
+h2, .usuario, .senha {
+    align-self: flex-start; /* Mantém os rótulos e o título alinhados à esquerda */
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 90px;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: var(--cor6);
+}
+
+
+label {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.senha {
+    margin-top: 25px;
+}
+
+.text {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--cor4); /* Opcional, mantém apenas a borda inferior */
+    outline: none; /* Remove o contorno ao focar */
+    background-color: transparent;
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    height: 55px;
+    background-color: var(--cor3);
+    border: none;
+    color: var(--cor4);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 18px;
+    font-family: var(--fonte1);
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor4);
+    font-size: 16px;
+}
