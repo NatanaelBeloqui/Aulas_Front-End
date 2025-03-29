@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let estudante1 = {nome:"Leonardo", matricula: "123456", instituicao: "SENAC"};
+        let estudante2 = {nome:"Leandro", matricula: "654321", instituicao: "SENAI"};
+        let estudante3 = new Object();
+        estudante3.nome = "Marcelo";
+        console.log(estudante1, estudante2, estudante3);
+        function carregou() {
+            alert("Olá, carregou a página!");
+        }
+
+        function alterou () {
+            alert("Você alterou os dados");
+        }
+
+        function salvarNome() {
+            alert("O nome foi salvo");
+        }
+
+    </script>
+
+</head>
+<body onload="carregou()">
+    <div>
+        <input type="text" placeholder="nome" id="nome" onchange="alterou()">
+        <input type="button" value="Clique aqui" onclick="salvarNome()">
+    </div>
+</body>
+</html>
