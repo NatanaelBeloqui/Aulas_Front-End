@@ -17,16 +17,26 @@ let pessoas = [
 ];
 
 let maiorAltura = 0;
-let menorAltura = 1000;
+let menorAltura = Infinity;
+let alturaMulheres = 0;
+let qtdMulheres = 0;
 
 for(let i = 0; i < pessoas.length; i++) {
     if(pessoas[i].altura > maiorAltura) {
         maiorAltura = pessoas[i].altura;
     }
-    if(pessoas[i].altura < maiorAltura) {
+    if(pessoas[i].altura < menorAltura) {
         menorAltura = pessoas[i].altura;
+    }
+    if (pessoas[i].sexo == 'F') {
+        alturaMulheres = alturaMulheres + pessoas[i].altura;
+        qtdMulheres ++;
     }
 }
 
+let mediaAlturaMulheres = qtdMulheres > 0 ? alturaMulheres / qtdMulheres : 0;
+let numeroHomens = pessoas.length - qtdMulheres;
+
 console.log(`A maior altura é ${maiorAltura}m.`);
 console.log(`A menor altura é ${menorAltura}m.`);
+console.log(`A média da altura das mulheres é ${mediaAlturaMulheres.toFixed(2)}m.`);
