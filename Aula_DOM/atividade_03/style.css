@@ -1,0 +1,7 @@
+#myParagraph {
+    transition: background-color 0.5s;
+}
+
+.hover {
+    background-color: yellow;
+}
