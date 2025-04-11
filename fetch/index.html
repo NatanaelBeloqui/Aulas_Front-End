@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+        </thead>
+        <tbody id="fact">
+            <!-- Dados serão inseridos os dados -->
+        </tbody>
+    </table>
+    <script>
+        function carregarFacts() {
+            fetch('https://catfact.ninja/facts') // Faz a requisisão à API
+                .then(response => response.json()) // Converter a resposta em JSON
+                .then(data => {
+                    const tabela = document.getElementById('fact');
+                })
+        }
+    </script>
+</body>
+</html>
