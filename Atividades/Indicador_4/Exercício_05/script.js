@@ -1,15 +1,14 @@
 function mostrar() {
     const div = document.querySelector('.resultado');
-    const medicamento = document.querySelector('#medicamento').value;
-    return div.innerHTML = `
-    <h2>Promoção de ${medicamento}</h2>
-    <h2>Leve 2 por apenas R$: ${calcularPromocao()}</h2>
-    `;
+    return div.innerHTML = `<h2>Valor a Pagar R$: ${calcularValorAPagar()}</h2>`;
 }
 
-function calcularPromocao() {
+function calcularValorAPagar() {
     const preco = parseFloat(document.querySelector('#preco').value);
-    const promocao = preco * 2;
+    const tempo = Number(document.querySelector('#tempo').value);
 
-    return Math.floor(promocao).toFixed(2);
+    const blocos = Math.ceil(tempo / 15); // ← Arredonda pra cima
+    const valor = preco * blocos;
+
+    return valor.toFixed(2);
 }
