@@ -6,9 +6,15 @@
     <title>Consumo de API</title>
 </head>
 <body>
-
+    <h2>Um Fato Sobre Gatos</h2>
+    <button onclick="carregarFacts()">Carregar Facts</button>
     <table>
         <thead>
+            <tr>
+                <th>ID</th>
+                <th>Texto (Fect)</th>
+                <th>Nr. de Caracteres</th>
+            </tr>
         </thead>
         <tbody id="fact">
             <!-- Dados serão inseridos os dados -->
@@ -20,7 +26,15 @@
                 .then(response => response.json()) // Converter a resposta em JSON
                 .then(data => {
                     const tabela = document.getElementById('fact');
+                    tabela.innerHTML = ''; // Limpa a tabela antes de preencher
+                    const linha = `<tr>
+                                        <td>1</td>
+                                        <td>${data.fact}</td>
+                                        <td>${data.length}</td>
+                                  </tr>`;
+                    tabela.innerHTML = linha;
                 })
+                .catch(error => console.error('Erro ao buscar facts: ', error));
         }
     </script>
 </body>
