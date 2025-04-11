@@ -1,13 +1,11 @@
 function mostrar() {
     const veiculo = document.querySelector('#veiculo').value;
-    
     const div = document.querySelector('.resultado');
-
+    
     return div.innerHTML = `
     <p>Promoção: ${veiculo}</p>
     <p>Entrada de R$:${calcularEntrada()}</p>
     <p>+ 12x de R$:${calcularSaldo()}</p>`
-
 }
 
 function calcularEntrada() {

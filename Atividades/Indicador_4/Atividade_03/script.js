@@ -1,25 +1,13 @@
 function mostrar() {
-    const veiculo = document.querySelector('#veiculo').value;
-    
     const div = document.querySelector('.resultado');
-
-    return div.innerHTML = `
-    <p>Promoção: ${veiculo}</p>
-    <p>Entrada de R$:${calcularEntrada()}</p>
-    <p>+ 12x de R$:${calcularSaldo()}</p>`
-
+    
+    return div.innerHTML = `<h2>Valor a pagar R$: ${calcularValor()}</h2>`;
 }
 
-function calcularEntrada() {
-    const preco = document.querySelector('#preco').value;
-    const entrada = preco/2;
+function calcularValor() {
+    const buffet = document.querySelector('#buffet').value;
+    const consumo = document.querySelector('#consumo').value;
+    const valor = (consumo*buffet)/1000;
 
-    return entrada.toFixed(2);
-}
-
-function calcularSaldo() {
-    const preco = document.querySelector('#preco').value;    
-    const saldo = (preco/2)/12;
-
-    return saldo.toFixed(2);
+    return valor.toFixed(2);
 }
