@@ -1,8 +1,9 @@
 function carregarGlorzo() {
-    fetch(`https://rickandmortyapi.com/api/character/${Math.floor(Math.random() * 826)}`)
+    const id = document.querySelector('#id').value;
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
         .then(response => response.json())
         .then(data => {
-            const tabela = document.getElementById('dados');
+            const tabela = document.querySelector('#dados');
             tabela.innerHTML = '';
             const linha = `<tr>
                                 <td>${data.id}</td>
