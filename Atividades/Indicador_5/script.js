@@ -6,12 +6,12 @@ function carregarGlorzo() {
             const tabela = document.querySelector('#dados');
             tabela.innerHTML = '';
             const linha = `<tr>
-                                <td>${data.id}</td>
-                                <td>${data.name}</td>
-                                <td>${data.status}</td>
-                                <td>${data.species}</td>
-                                <td>${data.type}</td>
-                                <td>${data.gender}</td>
+                                <td>${data.id === '' ? '-' : data.id}</td>
+                                <td>${data.name === '' ? '-' : data.name}</td>
+                                <td>${data.status === '' ? '-' : data.status}</td>
+                                <td>${data.species === '' ? '-' : data.species}</td>
+                                <td>${data.type === '' ? '-' : data.type}</td>
+                                <td>${data.gender === '' ? '-' : data.gender}</td>
                           </tr>`;
             tabela.innerHTML = linha;
         })
