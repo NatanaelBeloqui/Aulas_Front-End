@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consumo de API</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        table{
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h2>Um Fato Sobre Gatos</h2>
@@ -22,7 +37,7 @@
     </table>
     <script>
         function carregarFacts() {
-            fetch('https://catfact.ninja/facts') // Faz a requisisão à API
+            fetch('https://catfact.ninja/fact') // Faz a requisisão à API
                 .then(response => response.json()) // Converter a resposta em JSON
                 .then(data => {
                     const tabela = document.getElementById('fact');
@@ -36,6 +51,7 @@
                 })
                 .catch(error => console.error('Erro ao buscar facts: ', error));
         }
+
     </script>
 </body>
 </html>
