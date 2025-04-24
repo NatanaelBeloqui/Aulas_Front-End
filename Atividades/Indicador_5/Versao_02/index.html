@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <label for="id">ID:</label>
-    <input type="number" id="id" name="id" placeholder="Insira o ID" >
-    <h2>Personagem</h2>
-    <button class="btn_carregar" onclick="carregarPersonagem()">Carregar Personagem</button>
-    <button class="btn_limpar" onclick="limpar()" disabled>Limpar</button>
+    <h2>Escolha seu Personagem</h2>
+    <div>
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" placeholder="Insira o ID" >
+    </div>
+    <div>
+        <button class="btn_carregar" onclick="carregarPersonagem()">Carregar Personagem</button>
+        <button class="btn_limpar" onclick="limpar()" disabled>Limpar</button>
+    </div>
     <div>
         <table>
             <thead class="cabecalho">
@@ -20,6 +24,7 @@
             <tbody id="dados"></tbody>
         </table>
     </div>
+    <h2 class="nome"></h2>
     <div class="info"></div>
 
     <script src="script.js"></script>

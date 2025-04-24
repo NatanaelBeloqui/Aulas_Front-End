@@ -51,4 +51,3 @@ function limpar() {
     desativarBotaoLimpar();
 }
 
-// function maisInfo()
