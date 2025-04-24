@@ -1,16 +1,32 @@
+const input = document.querySelector('#id');
+input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        carregarPersonagem();
+    }
+});
+
 function carregarPersonagem() {
+
+    const titulo = document.querySelector('.titulo');
+    const nomePersonagem = document.querySelector('.nomePersonagem');
+    const divImagem = document.querySelector('.imagem');
+    const img = document.createElement('img');
     const id = document.querySelector('#id').value;
+
+    
     fetch(`https://rickandmortyapi.com/api/character/${id}`) // Faz a busca pela API
         .then((response) => response.json())
         .then((data) => {
-            const titulo = document.querySelector('.titulo');
-            const nomePersonagem = document.querySelector('.nomePersonagem');
-            const divImagem = document.querySelector('.imagem');
-            const img = document.createElement('img');
-            if (id) {
+
+            divImagem.innerHTML = '';
+
+            if (!id || id <=0) {
                 if (id <= 0) {
-                    alert('Digite um id válido maior que zero');
+                    return alert('Digite um id válido maior que zero');
                 } else {
+                    if (nomePersonagem === undefined) {
+                        return nomePersonagem.value.innerHTML = 'Não há personagem nesse id';
+                    }
                     titulo.innerText = 'Personagem escolhido';
                     nomePersonagem.innerHTML = data.name === '' ? '-' : data.name;
                     if (data.image) {
@@ -23,7 +39,7 @@ function carregarPersonagem() {
                     }
                 }
             } else {
-            alert('Insira um ID');
+            return alert('Insira um ID');
             }
         })
         .catch((error) => console.error('Erro ao buscar dados: ', error));
@@ -39,7 +55,7 @@ function desativarBotaoLimpar() {
 }
 
 function limpar() {
-    const id = document.querySelector('#id');
+    // const id = document.querySelector('#id');
     const titulo = document.querySelector('.titulo');
     const nomePersonagem = document.querySelector('.nomePersonagem');
     const divImagem = document.querySelector('.imagem');
