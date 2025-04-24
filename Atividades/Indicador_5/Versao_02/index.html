@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="id">ID:</label>
+    <input type="number" id="id" name="id" placeholder="Insira o ID" >
+    <h2>Personagem</h2>
+    <button class="btn_carregar" onclick="carregarPersonagem()">Carregar Personagem</button>
+    <button class="btn_limpar" onclick="limpar()" disabled>Limpar</button>
+    <div>
+        <table>
+            <thead class="cabecalho">
+                
+            </thead>
+            <tbody id="dados"></tbody>
+        </table>
+    </div>
+    <div class="info"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
