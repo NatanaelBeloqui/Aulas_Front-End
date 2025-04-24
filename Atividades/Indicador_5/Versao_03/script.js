@@ -6,44 +6,47 @@ input.addEventListener('keydown', function(event) {
 });
 
 function carregarPersonagem() {
-
+    const id = document.querySelector('#id').value;
     const titulo = document.querySelector('.titulo');
     const nomePersonagem = document.querySelector('.nomePersonagem');
     const divImagem = document.querySelector('.imagem');
-    const img = document.createElement('img');
-    const id = document.querySelector('#id').value;
 
-    
-    fetch(`https://rickandmortyapi.com/api/character/${id}`) // Faz a busca pela API
-        .then((response) => response.json())
+    divImagem.innerHTML = ''; // limpa imagem anterior, se houver
+
+    if (!id || id <= 0) {
+        alert('Digite um ID válido maior que zero');
+        return;
+    }
+
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Personagem não encontrado');
+            }
+            return response.json();
+        })
         .then((data) => {
+            titulo.innerText = 'Personagem escolhido';
+            nomePersonagem.innerHTML = data.name || '-';
 
-            divImagem.innerHTML = '';
-
-            if (!id || id <=0) {
-                if (id <= 0) {
-                    return alert('Digite um id válido maior que zero');
-                } else {
-                    if (nomePersonagem === undefined) {
-                        return nomePersonagem.value.innerHTML = 'Não há personagem nesse id';
-                    }
-                    titulo.innerText = 'Personagem escolhido';
-                    nomePersonagem.innerHTML = data.name === '' ? '-' : data.name;
-                    if (data.image) {
-                        img.src = data.image;
-                        img.alt = data.name; // sempre bom usar alt
-                        img.style.width = '400px'; // opcional
-                        img.style.borderRadius = '10px'; // só um estilinho
-                        divImagem.appendChild(img);
-                        document.querySelector('#id').value = '';
-                    }
-                }
-            } else {
-            return alert('Insira um ID');
+            if (data.image) {
+                const img = document.createElement('img');
+                img.src = data.image;
+                img.alt = data.name;
+                img.style.width = '400px';
+                img.style.borderRadius = '10px';
+                divImagem.appendChild(img);
             }
         })
-        .catch((error) => console.error('Erro ao buscar dados: ', error));
-        ativarBotaoLimpar();
+        .catch((error) => {
+            titulo.innerText = 'Erro';
+            nomePersonagem.innerHTML = 'Não há personagem nesse ID';
+            console.error('Erro ao buscar dados: ', error);
+        })
+        .finally(() => {
+            document.querySelector('#id').value = '';
+            ativarBotaoLimpar();
+        });
 }
 
 function ativarBotaoLimpar() {
