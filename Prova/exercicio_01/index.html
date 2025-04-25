@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img class="img" src="./img/herbie.png" alt="Imagem do carro Herbie">
+    <div class="container">
+        <h1>Revenda Herbie - Consignados</h1>
+        <div>
+            <label for="modelo">Modelo do Veículo:</label>
+            <input type="text" id="modelo" name="modelo">
+        </div>
+        <div>
+            <label for="ano">Ano de Frabricação:</label>
+            <input type="number" id="ano" name="ano">
+        </div>
+        <div>
+            <label for="preco">Preço Proprietário R$:</label>
+            <input type="number" id="preco" name="preco">
+        </div>
+        <button class="btn" onclick="mostrarInformacoes()">Classificar/Calcular Preço</button>
+        <div class="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
