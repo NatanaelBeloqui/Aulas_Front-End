@@ -5,11 +5,6 @@ input.addEventListener('keydown', function(event) {
     }
 });
 
-document.querySelector('.info').addEventListener('click', function() {
-    // Pode usar window.location.href ou window.location.assign
-    window.location.href = 'info.html';
-});
-
 function carregarPersonagem() {
     const id = document.querySelector('#id').value;
     const titulo = document.querySelector('.titulo');
@@ -66,17 +61,22 @@ function desativarBotaoLimpar() {
     document.querySelector('.btn_limpar').disabled = true;
 }
 
-function mostrarMaisInfo () {
-    const info = document.querySelector('.info');
+function mostrarMaisInfo() {
+    const info  = document.querySelector('.info');
     const botao = document.createElement('button');
-
+  
     botao.innerText = '+ Info';
-    return info.appendChild(botao);
-    
-}
+    botao.classList.add('btn-info');
+  
+    botao.addEventListener('click', function() {
+      window.location.href = 'info.html';
+    });
+  
+    info.appendChild(botao);
+    return botao;
+  }
 
 function limpar() {
-    // const id = document.querySelector('#id');
     const titulo = document.querySelector('.titulo');
     const nomePersonagem = document.querySelector('.nomePersonagem');
     const divImagem = document.querySelector('.imagem');
