@@ -15,38 +15,41 @@ function carregarPersonagem() {
 
     if (!id || id <= 0) {
         alert('Digite um ID válido maior que zero');
-        return;
+        limpar();
+        // return;
+    } else {
+
+        fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Personagem não encontrado');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                titulo.innerText = 'Personagem escolhido';
+                nomePersonagem.innerHTML = data.name || '-';
+    
+                if (data.image) {
+                    const img = document.createElement('img');
+                    img.src = data.image;
+                    img.alt = data.name;
+                    img.style.width = '400px';
+                    img.style.borderRadius = '10px';
+                    divImagem.appendChild(img);
+                }
+            })
+            .catch((error) => {
+                titulo.innerText = 'Erro';
+                nomePersonagem.innerHTML = 'Não há personagem nesse ID';
+                console.error('Erro ao buscar dados: ', error);
+            })
+            .finally(() => {
+                document.querySelector('#id').value = '';
+                ativarBotaoLimpar();
+            });
     }
 
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Personagem não encontrado');
-            }
-            return response.json();
-        })
-        .then((data) => {
-            titulo.innerText = 'Personagem escolhido';
-            nomePersonagem.innerHTML = data.name || '-';
-
-            if (data.image) {
-                const img = document.createElement('img');
-                img.src = data.image;
-                img.alt = data.name;
-                img.style.width = '400px';
-                img.style.borderRadius = '10px';
-                divImagem.appendChild(img);
-            }
-        })
-        .catch((error) => {
-            titulo.innerText = 'Erro';
-            nomePersonagem.innerHTML = 'Não há personagem nesse ID';
-            console.error('Erro ao buscar dados: ', error);
-        })
-        .finally(() => {
-            document.querySelector('#id').value = '';
-            ativarBotaoLimpar();
-        });
 }
 
 function ativarBotaoLimpar() {
