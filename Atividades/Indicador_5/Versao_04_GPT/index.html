@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha o Glorzo</title>
+</head>
+<body>
+  <h1>Rick & Morty</h1>
+
+  <label for="id">Escolha um ID:</label>
+  <input type="number" id="id" min="1" />
+
+  <button id="showImage">Mostrar Imagem</button>
+  <button id="moreInfo">+ Info</button>
+
+  <div id="image-container" style="margin-top:20px;"></div>
+
+  <script>
+    // Mostrar só a imagem do personagem na mesma página
+    document.getElementById('showImage').addEventListener('click', () => {
+      const id = document.getElementById('id').value;
+      if (!id || id <= 0) {
+        return alert('Insira um ID válido (maior que zero).');
+      }
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('image-container').innerHTML =
+            `<img src="${data.image}" alt="${data.name}" 
+                  style="max-width:200px; border-radius:8px;">
+             <p>${data.name}</p>`;
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Não foi possível carregar o personagem.');
+        });
+    });
+
+    // Botão +Info: redireciona para info.html passando o ID na URL
+    document.getElementById('moreInfo').addEventListener('click', () => {
+      const id = document.getElementById('id').value;
+      if (!id || id <= 0) {
+        return alert('Insira um ID válido (maior que zero).');
+      }
+      // aqui você “embute” o id na URL
+      window.location.href = `info.html?id=${id}`;
+    });
+  </script>
+</body>
+</html>
