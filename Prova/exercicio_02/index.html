@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="./img/work.png" alt="Imagem de trabalho online">
+        </div>
+        <div class="content">
+            <h1>Programa Últimas Notícias</h1>
+            <label for="noticia">Notícia:</label>
+            <input type="text" id="noticia" name="noticia"  maxlength="100">
+            <button class="btn btn-add" onclick="adicionarNoticia()">Adicionar Noticia</button>
+            <button class="btn btn-list" onclick="listarNoticias()">Listar Últimas Notícias</button>
+        </div>
+
+        <div class="cadastradas"></div>
+
+        <div class="noticias"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
