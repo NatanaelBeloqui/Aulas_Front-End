@@ -8,20 +8,33 @@
 </head>
 <body>
     <div class="container">
+
         <div class="img">
             <img src="./img/work.png" alt="Imagem de trabalho online">
         </div>
+
         <div class="content">
-            <h1>Programa Últimas Notícias</h1>
+
+            <h1>Últimas Notícias</h1>
             <label for="noticia">Notícia:</label>
             <input type="text" id="noticia" name="noticia"  maxlength="100">
-            <button class="btn btn-add" onclick="adicionarNoticia()">Adicionar Noticia</button>
+            <button class="btn btn-add" onclick="adicionarNoticia()">Adicionar</button>
             <button class="btn btn-list" onclick="listarNoticias()">Listar Últimas Notícias</button>
+
+            <div class="cadastradas">
+                <label>Noticias cadastradas: </label>
+                <label id="noticias-cadastradas"></label>
+            </div>
+            
+            <div class="ultimas-noticias">
+                <label for="qtd-noticias">Insira quantas notícias deseja ver:</label>
+                <input type="number" name="qtd-noticias" id="qtd-noticias">
+            </div>
+
+            <div class="noticias"></div>
+
         </div>
 
-        <div class="cadastradas"></div>
-
-        <div class="noticias"></div>
     </div>
     
     <script src="script.js"></script>

@@ -52,3 +52,7 @@ body {
   h1 {
     text-align: center;
   }
+
+  #qtd-noticias {
+    width: 40px;  /* Define a largura do campo */
+}
