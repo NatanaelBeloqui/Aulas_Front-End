@@ -9,3 +9,8 @@ fs.readFile('cof.txt', { 'flag' : 'r'}, function (err, data) {
     if (err) throw err;
     console.log(data.toString());
 })
+
+fs.writeFileSync('cof.txt', 'miau miau', {'flag':'w'});
+
+var arquivo = fs.readFileSync('cof.txt');
+console.log(arquivo.toString())
